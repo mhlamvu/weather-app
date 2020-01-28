@@ -1,3 +1,5 @@
+import keys from './config'
+
 window.addEventListener('load', () => {
   let long
   let lat
@@ -17,7 +19,7 @@ window.addEventListener('load', () => {
       // API_URL = https://api.darksky.net/forecast/3b828ee9d4b2de6a3bfa8d8591980bed/37.8267,-122.4233
 
       const cors = 'https://cors-anywhere.herokuapp.com/'
-      const api_key = '3b828ee9d4b2de6a3bfa8d8591980bed'
+      const api_key = keys.apiKey
       const api = `${cors}https://api.darksky.net/forecast/${api_key}/${lat},${long}`
 
       async function getWeather(){
@@ -58,7 +60,7 @@ window.addEventListener('load', () => {
   }
 
   function setIcons(icon, iconID){
-    const skycons = new Skycons({color: "black"})
+    const skycons = new Skycons({color: "white"})
     const currentIcon = icon.replace(/-/g, "_").toUpperCase()
     skycons.play()
     return skycons.set(iconID, Skycons[currentIcon])
